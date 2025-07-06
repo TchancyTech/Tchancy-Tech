@@ -1,0 +1,88 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Horse System</title>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  </head>
+
+  <body class="bg-white text-black">
+    <Navbar />
+
+    <main class="min-h-screen">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init({
+        once: true,
+        duration: 1000,
+        easing: 'ease-out',
+        offset: 120
+      });
+    </script>
+
+    <!-- Google Translate Auto Language Detection -->
+    <script is:inline>
+      function googleTranslateElementInit() {
+        const userLang = navigator.language || navigator.userLanguage;
+        const langCode = userLang.split('-')[0];
+
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,pt,es',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+
+        const waitAndSetLang = () => {
+          const gtCombo = document.querySelector('.goog-te-combo');
+          if (gtCombo) {
+            gtCombo.value = langCode;
+            gtCombo.dispatchEvent(new Event('change'));
+          } else {
+            setTimeout(waitAndSetLang, 200);
+          }
+        };
+
+        waitAndSetLang();
+      }
+
+      const gtScript = document.createElement('script');
+      gtScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+      document.body.appendChild(gtScript);
+    </script>
+
+    <!-- Hidden container for Google Translate -->
+    <div id="google_translate_element" class="hidden"></div>
+
+    <!-- TypeIt (typing effect) -->
+    <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
+    <script is:inline>
+      window.addEventListener("DOMContentLoaded", () => {
+        new TypeIt("#typing-welcome", {
+          speed: 80,
+          loop: true,
+          deleteSpeed: 100,
+          breakLines: false,
+          waitUntilVisible: true,
+        })
+        .type("Welcome to my website!")
+        .pause(1800)
+        .delete()
+        .go();
+      });
+    </script>
+  </body>
+</html>

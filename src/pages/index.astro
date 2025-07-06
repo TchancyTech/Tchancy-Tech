@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+  <section
+    class="relative min-h-screen bg-cover bg-center flex items-center justify-start text-left px-10 py-24"
+    style="background-image: url('/hero.jpg');"
+  >
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
+
+    <!-- Texte de présentation -->
+    <div class="relative z-10 max-w-3xl space-y-6 text-white bg-black bg-opacity-60 p-8 rounded-lg shadow-lg">
+      <h1 class="text-4xl md:text-5xl font-bold text-[theme('colors.blackhorse.orange')] drop-shadow-md mb-4">
+  <span id="typing-welcome"></span>
+</h1>
+<p> My name is Albert Tchancy Pierre Paul,I’m a passionate fullstack developer specializing in building modern,
+ custom web solutions and maintaining existing platforms.<p/>
+<p class="text-lg leading-relaxed text-[theme('colors.blackhorse.silver')]">
+  <span id="typing-intro"></span>
+</p>
+
+      <p class="text-lg leading-relaxed">
+        Here, you’ll find the services I offer, a showcase of my personal projects, and tailored solutions to help bring your digital ideas to life.
+      </p>
+
+      <p class="text-lg leading-relaxed">
+        Whether you need to develop a complete web application, improve performance, or ensure long-term maintenance of your systems — you're in the right place.
+      </p>
+
+      <p class="text-lg font-semibold text-[theme('colors.blackhorse.silver')]">
+        🚀 My mission: to deliver reliable, efficient, and scalable web solutions.
+      </p>
+
+      <p class="italic text-sm text-[theme('colors.blackhorse.silver')]">
+        Feel free to explore my portfolio or get in touch to discuss how I can support your project.
+      </p>
+    </div>
+  </section>
+</Layout>

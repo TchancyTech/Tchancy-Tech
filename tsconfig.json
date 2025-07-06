@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "jsx": "preserve",
+    "allowJs": true
+  },
+  "exclude": [
+    "astro.config.mjs",
+    "tailwind.config.js",
+    "node_modules"
+  ],
+  "include": ["src"]
+}
