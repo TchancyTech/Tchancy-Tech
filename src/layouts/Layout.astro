@@ -36,38 +36,7 @@ import Footer from "../components/Footer.astro";
       });
     </script>
 
-    <!-- Google Translate Auto Language Detection -->
-    <script is:inline>
-      function googleTranslateElementInit() {
-        const userLang = navigator.language || navigator.userLanguage;
-        const langCode = userLang.split('-')[0];
-
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'en,fr,pt,es',
-          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-
-        const waitAndSetLang = () => {
-          const gtCombo = document.querySelector('.goog-te-combo');
-          if (gtCombo) {
-            gtCombo.value = langCode;
-            gtCombo.dispatchEvent(new Event('change'));
-          } else {
-            setTimeout(waitAndSetLang, 200);
-          }
-        };
-
-        waitAndSetLang();
-      }
-
-      const gtScript = document.createElement('script');
-      gtScript.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-      document.body.appendChild(gtScript);
-    </script>
-
-    <!-- Hidden container for Google Translate -->
-    <div id="google_translate_element" class="hidden"></div>
+   
 
     <!-- TypeIt (typing effect) -->
     <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
