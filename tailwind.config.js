@@ -4,14 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blackhorse: {
-          black: "#000000",
+        // Palèt koulè san espas nan non yo
+        tchancy: {
+          black:  "#000000",
           silver: "#C0C0C0",
-          orange: "#FF6B00",
-          green: "#00101a" 
-        }
-      }
-    }
+          orange: "#ED820E",
+          green:  "#0F1B1B",
+        },
+      },
+    },
   },
-  plugins: []
+  plugins: [],
 };

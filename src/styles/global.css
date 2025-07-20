@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom language buttons */
+.lang-btn {
+  @apply px-2 py-1 bg-transparent border border-tchancy-orange text-tchancy-orange text-xs rounded hover:bg-tchancy-orange hover:text-white transition;
+}
+
+/* Google Translate widget hacks */
+#google_translate_element select {
+  background-color: #0F1B1B;
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+#google_translate_element select option {
+  color: black;
+}
+
+.goog-te-banner-frame.skiptranslate,
+.goog-logo-link,
+.goog-te-gadget {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}

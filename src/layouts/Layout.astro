@@ -1,44 +1,16 @@
 ---
-import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 <html lang="en">
- <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- SEO meta -->
-  <meta name="description" content="Black Horse System - Custom web development, maintenance, and digital solutions by Albert Tchancy." />
-  <meta name="keywords" content="Black Horse, web development, fullstack, cybersecurity, Albert Tchancy Pierre Paul" />
-  <meta name="author" content="Albert Tchancy Pierre Paul" />
-
-  <!-- Open Graph (Facebook/LinkedIn preview) -->
-  <meta property="og:title" content="Black Horse System - Forged to Bent Belief" />
-  <meta property="og:description" content="Reliable, efficient, and custom digital solutions by Albert Tchancy." />
-  <meta property="og:image" content="/logo.png" />
-  <meta property="og:url" content="https://blackhorsesystem.com" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Black Horse System - Forged to Bent Belief" />
-  <meta name="twitter:description" content="Reliable, efficient, and custom digital solutions by Albert Tchancy Pierre Paul." />
-  <meta name="twitter:image" content="/logo.png" />
-
-  <title>Black Horse System</title>
-
-  <!-- PWA + Theme -->
-  <link rel="manifest" href="/manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-  <meta name="theme-color" content="#FF6B00" />
-  <link rel="icon" type="image/png" href="/favicon.png" />
-
-  <!-- AOS CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
-</head>
-
-  <body class="bg-white text-black">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tchancy Tech</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  </head>
+  <body class="bg-[#0F1B1B] text-white">
     <Navbar />
 
     <main class="min-h-screen">
@@ -47,36 +19,31 @@ import Footer from "../components/Footer.astro";
 
     <Footer />
 
-    <!-- AOS -->
+    <!-- AOS animation -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script is:inline>
-      AOS.init({
-        once: true,
-        duration: 1000,
-        easing: 'ease-out',
-        offset: 120
-      });
+      AOS.init({ once: true, duration: 1000, easing: 'ease-out', offset: 120 });
     </script>
 
-   
-
-    <!-- TypeIt (typing effect) -->
-    <script src="https://cdn.jsdelivr.net/npm/typeit@8.7.1/dist/index.umd.min.js"></script>
+    <!-- Google Translate initialiser -->
     <script is:inline>
-      window.addEventListener("DOMContentLoaded", () => {
-        new TypeIt("#typing-welcome", {
-          speed: 80,
-          loop: true,
-          deleteSpeed: 100,
-          breakLines: false,
-          waitUntilVisible: true,
-        })
-        .type("Welcome to my website!")
-        .pause(1800)
-        .delete()
-        .go();
-      });
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,fr,pt,es',
+          autoDisplay: false,
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+      }
+    </script>
+
+    <!-- Load script seulement si pas localhost (évite CORS) -->
+    <script is:inline>
+      if (location.hostname !== 'localhost') {
+        const gt = document.createElement('script');
+        gt.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.body.appendChild(gt);
+      }
     </script>
   </body>
 </html>
-
